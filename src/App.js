@@ -46,14 +46,12 @@ class App extends Component {
   }
 
   main = (stock) => {
-    console.log(stock);
-    console.log("entered");;
-    // ReactDOM.render(
-    //   <React.StrictMode>
-    //     <Main keyword={stock} />
-    //   </React.StrictMode>,
-    //   document.getElementById('root')
-    // )
+    ReactDOM.render(
+      <React.StrictMode>
+        <Main keyword={stock} />
+      </React.StrictMode>,
+      document.getElementById('root')
+    )
   }
 
   render() {

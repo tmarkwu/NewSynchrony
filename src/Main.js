@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Main.css';
+import Newslist from './Newslist.js'
 
 class Main extends Component {
 
@@ -13,20 +14,22 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.example.com/items")
+    var key = "12153b9a22f44a56b7ff95b02f12c9cd";
+    var keyword = encodeURIComponent(this.props.keyword.trim());
+    var url = 'http://newsapi.org/v2/everything?q=' + '"' + keyword + '"' + '&from=2020-04-11&sortBy=popularity&apiKey='+ key;
+    console.log(url);
+    fetch(url)
       .then(res => res.json())
       .then(
         (result) => {
+          console.log(result);
           this.setState({
-            isLoaded: true,
-            items: result.items
+            isLoaded:true,
+            items:result.articles
           });
         },
         (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+
         }
       )
   }
@@ -39,14 +42,14 @@ class Main extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div class="row">
-            <div class="col-sm-6">
-
+        <div className="row">
+            <div className="col-sm-6">
 
             </div>
-            <div class="col-sm-6">
-
-
+            <div className="col-sm-6">
+              <div className="row">
+                <Newslist items={this.state.items}/>
+              </div>
             </div>
         </div>
       );
