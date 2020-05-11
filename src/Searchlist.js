@@ -11,7 +11,7 @@ class Searchlist extends Component {
   render() {
     return (
       this.props.items.map((item) => (
-        <Searchitem name={item["2. name"]} symbol={item["1. symbol"]} type={item["3. type"]} region={item["4. region"]}/>
+        <Searchitem navigate={this.props.navigate} name={item["2. name"]} symbol={item["1. symbol"]} type={item["3. type"]} region={item["4. region"]}/>
       ))
     );
   }

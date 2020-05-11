@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchlist from './Searchlist.js'
+import Main from './Main.js'
+import ReactDOM from 'react-dom';
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
 class App extends Component {
@@ -43,6 +45,16 @@ class App extends Component {
     )
   }
 
+  main = (stock) => {
+    console.log(stock);
+    console.log("entered");;
+    // ReactDOM.render(
+    //   <React.StrictMode>
+    //     <Main keyword={stock} />
+    //   </React.StrictMode>,
+    //   document.getElementById('root')
+    // )
+  }
 
   render() {
     return (
@@ -54,7 +66,7 @@ class App extends Component {
           </div>
         </div>
         <div id="results" className="row">
-          <Searchlist items={this.state.items}/>
+          <Searchlist items={this.state.items} navigate={this.main} />
         </div>
       </div>
     );
