@@ -9,7 +9,7 @@ class Searchitem extends Component {
 
   render() {
     return (
-    <div className="col-sm-3">
+    <div className="col-sm-3 m-4 d-flex align-items-stretch">
       <div className="gradient-box">
         <div className="card-body" onClick={this.props.navigate.bind(this,this.props.name)}>
           <h5 className="card-title">{this.props.name}</h5>
@@ -18,7 +18,7 @@ class Searchitem extends Component {
           <p className="card-text">Region: {this.props.region}</p>
         </div>
       </div>
-      </div>
+    </div>
     );
   }
 }

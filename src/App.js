@@ -12,6 +12,7 @@ class App extends Component {
   constructor(props) {
   super(props);
   this.state = {
+    isLoaded: true,
     items: []
   };
 
@@ -30,6 +31,7 @@ class App extends Component {
         console.log(result);
         if(result.bestMatches == null){
           this.setState({
+            isLoaded:true,
             items:[]
           });
         }
@@ -55,19 +57,28 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div>
-        <div id="search" className="input-group">
-          <input className="form-control" type="text" ref={(input) => this.textInput = input} placeholder="Search" aria-label="Search"></input>
-          <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="button" onClick={this.search}>Search</button>
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <div>
+          <div id="search" className="input-group">
+            <input className="form-control" type="text" ref={(input) => this.textInput = input} placeholder="Search" aria-label="Search"></input>
+            <div className="input-group-append">
+              <button className="btn btn-outline-secondary" type="button" onClick={this.search}>Search</button>
+            </div>
+          </div>
+          <div className="container">
+            <div className="row">
+              <Searchlist items={this.state.items} navigate={this.main} />
+            </div>
           </div>
         </div>
-        <div id="results" className="row">
-          <Searchlist items={this.state.items} navigate={this.main} />
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 export default withAuthenticator(App)
