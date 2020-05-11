@@ -1,26 +1,63 @@
-import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Searchlist from './Searchlist.js'
+import { withAuthenticator } from '@aws-amplify/ui-react'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+  constructor(props) {
+  super(props);
+  this.state = {
+    items: []
+  };
+
+  }
+
+  search = () => {
+    var key = 'R24LKU7C5EHKA27A';
+    var keyword = this.textInput.value;
+    var url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword + "&apikey=" + key;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result.bestMatches);
+        console.log(result);
+        if(result.bestMatches == null){
+          this.setState({
+            items:[]
+          });
+        }
+        else {
+          this.setState({
+            items:result.bestMatches
+          });
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
+
+  render() {
+    return (
+      <div>
+        <div id="search" className="input-group">
+          <input className="form-control" type="text" ref={(input) => this.textInput = input} placeholder="Search" aria-label="Search"></input>
+          <div className="input-group-append">
+            <button className="btn btn-outline-secondary" type="button" onClick={this.search}>Search</button>
+          </div>
+        </div>
+        <div id="results" className="row">
+          <Searchlist items={this.state.items}/>
+        </div>
+      </div>
+    );
+  }
 }
-
-export default App;
+export default withAuthenticator(App)
