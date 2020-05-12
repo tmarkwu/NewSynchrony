@@ -47,10 +47,11 @@ class App extends Component {
     )
   }
 
-  main = (stock) => {
+  main = (stock,t) => {
+    console.log(t);
     ReactDOM.render(
       <React.StrictMode>
-        <Main keyword={stock} />
+        <Main keyword={stock} ticker={t}/>
       </React.StrictMode>,
       document.getElementById('root')
     )
