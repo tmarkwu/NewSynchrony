@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchlist from './Searchlist.js'
 import Main from './Main.js'
 import ReactDOM from 'react-dom';
+import logo from './images/logo.png'
+import Navigation from './Navigation'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
 class App extends Component {
@@ -66,6 +67,10 @@ class App extends Component {
     } else {
       return (
         <div>
+          <Navigation/>
+          <div id="logo_main">
+            <img src={logo}  className="img-responsive" alt="logo"></img>
+          </div>
           <div id="search" className="input-group">
             <input className="form-control" type="text" ref={(input) => this.textInput = input} placeholder="Search" aria-label="Search"></input>
             <div className="input-group-append">
