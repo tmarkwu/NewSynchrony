@@ -7,14 +7,14 @@ class Navigation extends Component {
 
   render() {
     return (
-    <nav className="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+    <nav className="navbar fixed-top navbar-expand-lg navbar-dark ">
       <img src={logo}  width="210px" height="30px" className="img-responsive" alt="logo"></img>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
 
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
-        <ul className="navbar-nav mr-auto ml-3 mt-2 mt-lg-0">
+        <ul className="navbar-nav mr-auto ml-4 mt-2 mt-lg-0">
           <li className="nav-item active">
             <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
           </li>
@@ -37,6 +37,8 @@ class Navigation extends Component {
         </ul>
       </div>
     </nav>
+
+
   );
   }
 

@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchlist from './Searchlist.js'
 import Main from './Main.js'
 import ReactDOM from 'react-dom';
-import logo from './images/logo.png'
+import logo from './images/logo_navbar.png'
 import Navigation from './Navigation'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
@@ -66,7 +66,7 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
+        <div id="home">
           <Navigation/>
           <div id="logo_main">
             <img src={logo}  className="img-responsive" alt="logo"></img>
