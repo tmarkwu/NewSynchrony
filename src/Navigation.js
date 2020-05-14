@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import logo from './images/logo_navbar.png'
-import './Navigation.css'
+import logo from './images/logo_navbar.png';
+import './Navigation.css';
+import Search from './Search';
 
 class Navigation extends Component {
 
+  constructor(props){
+    super(props);
+  }
 
   render() {
     return (
@@ -36,6 +40,9 @@ class Navigation extends Component {
           </li>
         </ul>
       </div>
+      <span id="nav_search">
+      <Search search={this.props.search}/>
+      </span>
     </nav>
 
 

@@ -4,8 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Searchlist from './Searchlist.js'
 import Main from './Main.js'
 import ReactDOM from 'react-dom';
-import logo from './images/logo_navbar.png'
+import logo from './images/logo_main.png'
 import Navigation from './Navigation'
+import Search from './Search'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
 class App extends Component {
@@ -19,9 +20,10 @@ class App extends Component {
 
   }
 
-  search = () => {
+  search = (content) => {
+    console.log(content);
     var key = 'R24LKU7C5EHKA27A';
-    var keyword = this.textInput.value;
+    var keyword = content;
     var url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword + "&apikey=" + key;
 
   fetch(url)
@@ -66,16 +68,15 @@ class App extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div id="home">
-          <Navigation/>
-          <div id="logo_main">
-            <img src={logo}  className="img-responsive" alt="logo"></img>
+      <div id="wrap">
+          <div id="main_nav">
+          <Navigation search={this.search}/>
           </div>
-          <div id="search" className="input-group">
-            <input className="form-control" type="text" ref={(input) => this.textInput = input} placeholder="Search" aria-label="Search"></input>
-            <div className="input-group-append">
-              <button className="btn btn-outline-secondary" type="button" onClick={this.search}>Search</button>
-            </div>
+          <div id="logo_main" className="container">
+          <img src={logo} className="img-fluid" alt="logo"></img>
+          </div>
+          <div id="search_responsive" className="container">
+          <Search search={this.search}/>
           </div>
           <div className="container">
             <div className="row">

@@ -16,10 +16,40 @@ class Main extends Component {
     };
   }
 
+  search = (content) => {
+    console.log(content);
+    var key = 'R24LKU7C5EHKA27A';
+    var keyword = content;
+    var url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword + "&apikey=" + key;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+        console.log(result.bestMatches);
+        console.log(result);
+        if(result.bestMatches == null){
+          this.setState({
+            isLoaded:true,
+            items:[]
+          });
+        }
+        else {
+          this.setState({
+            items:result.bestMatches
+          });
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
   componentDidMount() {
     var key = "12153b9a22f44a56b7ff95b02f12c9cd";
     var keyword = encodeURIComponent(this.props.keyword.trim());
-    var url = 'https://newsapi.org/v2/everything?q=' + '"' + keyword + '"' + '&from=2020-04-12&sortBy=popularity&apiKey='+ key;
+    var url = 'https://newsapi.org/v2/everything?q=' + '"' + keyword + '"' + '&from=2020-04-18&sortBy=popularity&apiKey='+ key;
     console.log(url);
     fetch(url)
       .then(res => res.json())
@@ -51,9 +81,9 @@ class Main extends Component {
                   "colorTheme": "light",
                   "isTransparent": false,
                   "largeChartUrl": "",
-                  "displayMode": "adaptive",
+                  "displayMode": "regular",
                   "width": "100%",
-                  "height": "700",
+                  "height": "100%",
                   "locale": "en"})
       document.getElementById(id).appendChild(script);
     }
@@ -89,8 +119,8 @@ class Main extends Component {
   render() {
       return (
         <div>
-        <Navigation/>
-        <div className="row">
+        <Navigation search={this.search}/>
+        <div id="main" className="row">
             <div className="col-sm-6">
             <div id="stock_overview"></div>
             <nav className="nav nav-tabs nav-justified">

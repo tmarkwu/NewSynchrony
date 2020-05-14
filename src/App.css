@@ -1,26 +1,38 @@
-#search{
-  border-radius: 5vh;
-  width: 50vh;
-  margin: auto;
-  padding-top: 10vh;
-  padding-bottom: 10vh;
+@media only screen and (min-width: 768px) {
+    #search_responsive{
+      display: none;
+    }
 }
 
+@media only screen and (max-width: 767px) {
+    #nav-search{
+      display: none;
+    }
+}
+
+#search_responsive{
+  padding-top: 10vh;
+}
 #results{
   padding:10vh;
 }
 
-html,
-#home{
-  height: 100%;
-  background: linear-gradient(to bottom right, rgba(49, 49, 49, 0.9) 0.48%, rgba(34, 52, 174, 0.8) 73.52%), url('images/background.jpg') no-repeat fixed;
+#nav{
+  z-index: 1;
+}
+
+#main_nav .navbar{
+  background-image: none;
+}
+#wrap{
+  padding-top: 30vh;
+  height: 100vh;
+  background: linear-gradient(to bottom right, rgba(49, 49, 49, 1) -20%, rgba(109, 173, 219, 0.8) 230.52%), url('images/background.jpg') no-repeat fixed;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
 }
 
-
 #logo_main{
   text-align: center;
-  margin-top: 10vh;
 }

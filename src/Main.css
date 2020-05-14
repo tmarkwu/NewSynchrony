@@ -2,6 +2,11 @@
   overflow-y: scroll;
 }
 
-body{
-  margin-top: 6vh;
+#main{
+  padding: 8vh;
+
+}
+
+.tv-feed-widget__scroll-wrapper{
+  height: 100%;
 }
