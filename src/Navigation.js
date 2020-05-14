@@ -40,7 +40,7 @@ class Navigation extends Component {
           </li>
         </ul>
       </div>
-      <span id="nav_search">
+      <span className="nav_search">
       <Search search={this.props.search}/>
       </span>
     </nav>

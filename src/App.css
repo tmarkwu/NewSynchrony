@@ -3,13 +3,6 @@
       display: none;
     }
 }
-
-@media only screen and (max-width: 767px) {
-    #nav-search{
-      display: none;
-    }
-}
-
 #search_responsive{
   padding-top: 10vh;
 }
