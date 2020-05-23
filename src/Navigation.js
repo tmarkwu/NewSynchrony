@@ -26,7 +26,7 @@ class Navigation extends Component {
             <a className="nav-link" href="#">About</a>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Change Log</a>
+            <a className="nav-link" href="#change-log">Change Log</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">Contact</a>
@@ -41,7 +41,7 @@ class Navigation extends Component {
         </ul>
       </div>
       <span className="nav_search">
-      <Search search={this.props.search}/>
+      <Search/>
       </span>
     </nav>
 

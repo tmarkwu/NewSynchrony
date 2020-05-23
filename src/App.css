@@ -10,6 +10,10 @@
   padding:10vh;
 }
 
+#change-log p{
+  font-family: monospace;
+}
+
 #nav{
   z-index: 1;
 }

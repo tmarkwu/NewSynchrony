@@ -1,8 +1,9 @@
-.col-sm-3{
-  border:3px solid #090979;
-  border-radius: 15px;
+.card-stock{
+  width: 80vh;
+  margin: auto;
+  padding: 3vh;
 }
 
-.col-sm-3:hover{
+.card-stock:hover{
   transform: scale(1.1);
 }

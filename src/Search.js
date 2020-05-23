@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './images/logo_navbar.png'
 import './Search.css'
+import ReactDOM from 'react-dom';
+import Searchlist from './Searchlist'
 
 
 class Search extends Component {
@@ -8,7 +10,8 @@ class Search extends Component {
   constructor(props) {
   super(props);
   this.state = {
-    input: ""
+    input: "",
+    items: []
   };
   }
 
@@ -16,16 +19,42 @@ class Search extends Component {
     this.setState({input: e.target.value});
   }
 
+  search = () => {
+    var key = 'R24LKU7C5EHKA27A';
+    var keyword = this.state.input;
+    var url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword + "&apikey=" + key;
+
+  fetch(url)
+    .then(res => res.json())
+    .then(
+      (result) => {
+          if(result.bestMatches.length < 1){
+            alert("No Results Found")
+          }
+          else{
+          ReactDOM.render(
+            <React.StrictMode>
+              <Searchlist items={result.bestMatches}/>
+            </React.StrictMode>,
+            document.getElementById('root')
+          )
+        }
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
+  }
+
   render(){
     return(
         <div className="input-group">
           <input className="form-control" type="text" onChange={this.handleChange} placeholder="Symbol or Keyword" aria-label="Search"></input>
           <div className="input-group-append">
-            <button className="btn btn-outline-secondary" type="button" onClick={this.props.search.bind(this,this.state.input)}>Search</button>
+            <button className="btn btn-outline-secondary" type="button" onClick={this.search}>Search</button>
           </div>
         </div>
     );
-
   }
 }
 

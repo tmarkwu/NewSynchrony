@@ -20,72 +20,62 @@ class App extends Component {
 
   }
 
-  search = (content) => {
-    console.log(content);
-    var key = 'R24LKU7C5EHKA27A';
-    var keyword = content;
-    var url = "https://www.alphavantage.co/query?function=SYMBOL_SEARCH&keywords=" + keyword + "&apikey=" + key;
-
-  fetch(url)
-    .then(res => res.json())
-    .then(
-      (result) => {
-        console.log(result.bestMatches);
-        console.log(result);
-        if(result.bestMatches == null){
-          this.setState({
-            isLoaded:true,
-            items:[]
-          });
-        }
-        else {
-          this.setState({
-            items:result.bestMatches
-          });
-        }
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-  }
-
-  main = (stock,t) => {
-    console.log(t);
-    ReactDOM.render(
-      <React.StrictMode>
-        <Main keyword={stock} ticker={t}/>
-      </React.StrictMode>,
-      document.getElementById('root')
-    )
-  }
-
   render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
       return (
+    <div>
       <div id="wrap">
           <div id="main_nav">
-          <Navigation search={this.search}/>
+          <Navigation/>
           </div>
           <div id="logo_main" className="container">
           <img src={logo} className="img-fluid" alt="logo"></img>
           </div>
           <div id="search_responsive" className="container">
-          <Search search={this.search}/>
-          </div>
-          <div className="container">
-            <div className="row">
-              <Searchlist items={this.state.items} navigate={this.main} />
-            </div>
+            <Search search={this.search}/>
           </div>
         </div>
+
+        <div id="change-log">
+            <p className="h1 text-center bg-light text-dark">Versioning</p>
+            <div className="card bg-light text-dark">
+                <div className="card-body">
+                  <h5 className="card-title">1.3.0</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">5-22-2020</h6>
+                  <p className="card-text">
+                  <ul>
+                    <dd>Added support for New York Stock Exchange Symbols (NYSE) and Toronto Stock Exchange. More exchange platforms will be added soon.</dd>
+                    <dd>News can now be filtered by date and sorted by date/popularity</dd>
+                    <dd>Added a separate search result page from the main screen</dd>
+                    <dd>Added simple error handling for empty search results</dd>
+                    <dd>Change log transferred/hyperlinked</dd>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+
+              <div className="card bg-light text-dark">
+                  <div className="card-body">
+                    <h5 className="card-title">1.2.0</h5>
+                    <h6 className="card-subtitle mb-2 text-muted">5-14-2020</h6>
+                    <p className="card-text">
+                    <ul>
+                      <dd>Search bar responsive layout altered on mobile</dd>
+                      <dd>News Description edited to include character length</dd>
+                      <dd>Home page rework completed with navbar</dd>
+                    </ul>
+                    </p>
+                  </div>
+                </div>
+              <div className="card bg-light text-dark">
+                <div className="card-body">
+                  <h5 className="card-title">1.0.0</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">5-9-2020</h6>
+                  <p className="card-text">Initial release of NewSynchrony</p>
+                </div>
+                </div>
+        </div>
+      </div>
       );
-    }
   }
 }
 export default App

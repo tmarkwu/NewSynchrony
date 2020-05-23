@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import Searchitem from './Searchitem.js';
+import Navigation from './Navigation';
+import ReactDOM from 'react-dom';
+import Resultlist from './Resultlist'
+import Search from './Search'
+import './Searchlist.css'
+import logo from './images/logo_navbar.png';
+
 
 class Searchlist extends Component {
 
   constructor(props){
     super(props);
-    this.state = {};
   }
 
   render() {
     return (
-      this.props.items.map((item) => (
-        <Searchitem navigate={this.props.navigate} name={item["2. name"]} symbol={item["1. symbol"]} type={item["3. type"]} region={item["4. region"]}/>
-      ))
+      <div id="search-list">
+        <div id="n">
+        <Navigation/>
+        </div>
+        <div id="result-list">
+          <div className="container">
+          <div id="search-text">Showing {this.props.items.length} results:</div>
+          </div>
+          <Resultlist items={this.props.items}/>
+        </div>
+      </div>
     );
   }
 }

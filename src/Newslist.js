@@ -11,7 +11,7 @@ class Newslist extends Component {
   render() {
     return (
       this.props.items.map((item) => (
-        <Newsitem title={item.title} author={item.author} picture={item.urlToImage} description={item.description} link={item.url}/>
+        <Newsitem title={item.title} author={item.author} picture={item.urlToImage} description={item.content} link={item.url}/>
       ))
     );
   }
