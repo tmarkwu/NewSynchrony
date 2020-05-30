@@ -55,8 +55,7 @@ class Main extends Component {
     else {
       date = moment().subtract(1,'m').format('YYYY-MM-DD');
     }
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    var url = proxyurl + 'https://newsapi.org/v2/everything?q=' + '"' + keyword + '"' + '&from=' + date + '&sortBy=' + sort + '&apiKey='+ key;
+    var url = 'https://newsapi.org/v2/everything?q=' + '"' + keyword + '"' + '&from=' + date + '&sortBy=' + sort + '&apiKey='+ key;
 
     console.log(url);
 
