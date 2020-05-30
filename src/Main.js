@@ -4,6 +4,7 @@ import Newslist from './Newslist.js'
 import TradingViewWidget from 'react-tradingview-widget';
 import Navigation from './Navigation.js'
 import moment from 'moment'
+import RedditList from './RedditList.js'
 
 class Main extends Component {
 
@@ -14,8 +15,29 @@ class Main extends Component {
       error: null,
       isLoaded: false,
       items: [],
+      reddit: [],
       value: ""
     };
+  }
+
+  fetchReddit = () => {
+      var keyword = encodeURIComponent(this.props.keyword.trim());
+      var url = "https://www.reddit.com/r/all/search.json?q=" + keyword;
+
+      fetch(url)
+        .then(res => res.json())
+        .then(
+          (result) => {
+            console.log(result.data.children);
+            this.setState({
+              isLoaded:true,
+              reddit:result.data.children
+            });
+          },
+          (error) => {
+              console.log(error);
+          }
+        )
   }
 
   fetchNews = () => {
@@ -92,6 +114,7 @@ class Main extends Component {
   componentDidMount() {
     this.fetchNews();
     this.fetchStock();
+    this.fetchReddit();
   }
 
   renderFinancial = (src, id, v) => {
@@ -112,7 +135,7 @@ class Main extends Component {
     catch(err) {
       console.log("error");
     }
-    }
+  }
 
   renderWidgets = (src, id, v) => {
     try{
@@ -206,7 +229,7 @@ class Main extends Component {
                         Coming soon!
                       </div>
                       <div id="reddit" className="tab-pane fade">
-                        Coming Soon!
+                          <RedditList reddit={this.state.reddit}/>
                       </div>
               </div>
             </div>

@@ -10,3 +10,8 @@
 .form-news{
   width: 11vh;
 }
+
+#twitter, #reddit, #news{
+  overflow-y: scroll;
+  height: 90vh;
+}
