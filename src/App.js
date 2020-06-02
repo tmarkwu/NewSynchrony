@@ -39,13 +39,26 @@ class App extends Component {
             <p id="v-title" className="h1 text-center">Versioning</p>
             <div className="card bg-light text-dark">
                 <div className="card-body">
+                  <h5 className="card-title">1.3.1</h5>
+                  <h6 className="card-subtitle mb-2 text-muted">6-2-2020</h6>
+                  <p className="card-text">
+                  <ul>
+                    <dd>{"- Updated News Search endpoint to finnhub.io due to header configuration issues"}</dd>
+                    <dd>{"- Filtered search results to only US-based Equities"}</dd>
+                    <dd>{"- Sort functionality is temporarily removed, search increments altered"}</dd>
+                  </ul>
+                  </p>
+                </div>
+              </div>
+            <div className="card bg-light text-dark">
+                <div className="card-body">
                   <h5 className="card-title">1.3.0</h5>
                   <h6 className="card-subtitle mb-2 text-muted">5-29-2020</h6>
                   <p className="card-text">
                   <ul>
-                    <dd>- The Reddit search feature has arrived! Additional sorting options availible soon.</dd>
-                    <dd>- Scrolling enabled to view media sources</dd>
-                    <dd>- Top 25 reddit posts relavant to company now displayed in the reddit tab</dd>
+                    <dd>{"- The Reddit search feature has arrived! Additional sorting options availible soon."}</dd>
+                    <dd>{"- Scrolling enabled to view media sources"}</dd>
+                    <dd>{"- Top 25 reddit posts relavant to company now displayed in the reddit tab"}</dd>
                   </ul>
                   </p>
                 </div>
@@ -56,11 +69,11 @@ class App extends Component {
                   <h6 className="card-subtitle mb-2 text-muted">5-22-2020</h6>
                   <p className="card-text">
                   <ul>
-                    <dd>- Added support for New York Stock Exchange Symbols (NYSE) and Toronto Stock Exchange. More exchange platforms will be added soon.</dd>
-                    <dd>- News can now be filtered by date and sorted by date/popularity</dd>
-                    <dd>- Added a separate search result page from the main screen</dd>
-                    <dd>- Added simple error handling for empty search results</dd>
-                    <dd>- Change log transferred/hyperlinked</dd>
+                    <dd>{"- Added support for New York Stock Exchange Symbols (NYSE) and Toronto Stock Exchange. More exchange platforms will be added soon."}</dd>
+                    <dd>{"- News can now be filtered by date and sorted by date/popularity"}</dd>
+                    <dd>{"- Added a separate search result page from the main screen"}</dd>
+                    <dd>{"- Added simple error handling for empty search results"}</dd>
+                    <dd>{"- Change log transferred/hyperlinked"}</dd>
                   </ul>
                   </p>
                 </div>
@@ -72,9 +85,9 @@ class App extends Component {
                     <h6 className="card-subtitle mb-2 text-muted">5-14-2020</h6>
                     <p className="card-text">
                     <ul>
-                      <dd>- Search bar responsive layout altered on mobile</dd>
-                      <dd>- News Description edited to include character length</dd>
-                      <dd>- Home page rework completed with navbar</dd>
+                      <dd>{"- Search bar responsive layout altered on mobile"}</dd>
+                      <dd>{"- News Description edited to include character length"}</dd>
+                      <dd>{"- Home page rework completed with navbar"}</dd>
                     </ul>
                     </p>
                   </div>

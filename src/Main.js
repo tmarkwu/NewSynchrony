@@ -23,7 +23,6 @@ class Main extends Component {
   fetchReddit = () => {
       var keyword = encodeURIComponent(this.props.keyword.trim());
       var url = "https://www.reddit.com/r/all/search.json?q=" + keyword;
-
       fetch(url)
         .then(res => res.json())
         .then(
@@ -41,21 +40,22 @@ class Main extends Component {
   }
 
   fetchNews = () => {
-    var key = "12153b9a22f44a56b7ff95b02f12c9cd";
-    var keyword = encodeURIComponent(this.props.keyword.trim());
-    var sort = document.getElementById("select-sort").value;
     var date = document.getElementById("select-time").value;
+    var current = moment().format('YYYY-MM-DD');
+    console.log(current);
 
     if(date == "day"){
-      date = moment().subtract(1,'d').format('YYYY-MM-DD');
+      date = moment().subtract(3,'d').format('YYYY-MM-DD');
     }
     else if (date == "week"){
       date = moment().subtract(1,'w').format('YYYY-MM-DD');
     }
     else {
       date = moment().subtract(1,'m').format('YYYY-MM-DD');
+      console.log("month");
     }
-    var url = 'https://newsapi.org/v2/everything?q=' + '"' + keyword + '"' + '&from=' + date + '&sortBy=' + sort + '&apiKey='+ key;
+    console.log(date);
+    var url = 'https://finnhub.io/api/v1/company-news?symbol=' + this.props.ticker + '&from=' + date + '&to=' + current + '&token=bquqnj7rh5rcjefatevg'
 
     console.log(url);
 
@@ -65,9 +65,10 @@ class Main extends Component {
         (result) => {
           console.log(result);
           this.setState({
-            isLoaded:true,
-            items:result.articles
-          });
+            isLoaded: true,
+            items: result
+          })
+
         },
         (error) => {
             console.log(error);
@@ -206,17 +207,9 @@ class Main extends Component {
                             <span className="container">
                                   <span>Show results from the past: </span>
                                   <select onChange={this.fetchNews} className="form-news" id="select-time">
-                                    <option value="day">Day</option>
+                                    <option value="day">3 Days</option>
                                     <option value="week">Week</option>
                                     <option value="month">Month</option>
-                                  </select>
-                            </span>
-                            <span className="container">
-                                  <span>Sort By: </span>
-                                  <select onChange={this.fetchNews} className="form-news" id="select-sort">
-                                    <option value="publishedAt">Date</option>
-                                    <option value="popularity">Popularity</option>
-                                    <option value="relevancy">Relevancy</option>
                                   </select>
                             </span>
                           </div>

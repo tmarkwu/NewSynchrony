@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Newsitem.css'
+import moment from 'moment'
 
 class Newsitem extends Component {
 
@@ -16,7 +17,7 @@ class Newsitem extends Component {
           <img className="card-img-top" src={this.props.picture} alt="Card image cap" width="362px" height="180px"></img>
           <div className="card-body">
             <h5 className="card-title">{this.props.title}</h5>
-            <h6 className="card-subtitle mb-2 text-muted">{this.props.author}</h6>
+            <h6 className="card-subtitle mb-2 text-muted">{moment.unix(this.props.author).format('MM-DD-YYYY')}</h6>
             <p className="card-text">{this.props.description}</p>
             </div>
           </div>

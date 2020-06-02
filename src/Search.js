@@ -32,9 +32,14 @@ class Search extends Component {
             alert("No Results Found")
           }
           else{
+          var filtered = result.bestMatches.filter((item) => {
+            return (item['3. type'] == "Equity" && item['4. region'] == "United States");
+          });
+
+          console.log(filtered);
           ReactDOM.render(
             <React.StrictMode>
-              <Searchlist items={result.bestMatches}/>
+              <Searchlist items={filtered}/>
             </React.StrictMode>,
             document.getElementById('root')
           )
