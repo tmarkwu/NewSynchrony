@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './images/logo_navbar.png';
-import './Navigation.css';
+import './css/Navigation.css';
 import Search from './Search';
 
 class Navigation extends Component {
@@ -20,15 +20,15 @@ class Navigation extends Component {
       <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
         <ul className="navbar-nav mr-auto ml-4 mt-2 mt-lg-0">
           <li className="nav-item active">
-            <a className="nav-link" href="#">Home<span className="sr-only">(current)</span></a>
+            <a className="nav-link" href="https://master.d3bckmtwgrwfut.amplifyapp.com/">Home<span className="sr-only">(current)</span></a>
           </li>
-          <li className="nav-item">
+          {/*<li className="nav-item">
             <a className="nav-link" href="#">About</a>
-          </li>
+          </li>*/}
           <li className="nav-item">
-            <a className="nav-link" href="#change-log">What's New</a>
+            <a className="nav-link" href="https://master.d3bckmtwgrwfut.amplifyapp.com/#change-log">{"What's New"}</a>
           </li>
-          <li className="nav-item">
+          {/*<li className="nav-item">
             <a className="nav-link" href="#">Contact</a>
           </li>
           <li className="nav-item dropdown">
@@ -37,7 +37,7 @@ class Navigation extends Component {
                   <a className="dropdown-item" href="#">My account</a>
                   <a className="dropdown-item" href="#">Log out</a>
               </div>
-          </li>
+          </li>*/}
         </ul>
       </div>
       <span className="nav_search">

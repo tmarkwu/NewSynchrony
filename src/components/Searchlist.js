@@ -4,7 +4,7 @@ import Navigation from './Navigation';
 import ReactDOM from 'react-dom';
 import Resultlist from './Resultlist'
 import Search from './Search'
-import './Searchlist.css'
+import './css/Searchlist.css'
 import logo from './images/logo_navbar.png';
 
 

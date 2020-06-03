@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Main.css';
+import './css/Main.css';
 import Newslist from './Newslist.js'
 import TradingViewWidget from 'react-tradingview-widget';
 import Navigation from './Navigation.js'
@@ -42,7 +42,6 @@ class Main extends Component {
   fetchNews = () => {
     var date = document.getElementById("select-time").value;
     var current = moment().format('YYYY-MM-DD');
-    console.log(current);
 
     if(date == "day"){
       date = moment().subtract(3,'d').format('YYYY-MM-DD');
@@ -52,13 +51,8 @@ class Main extends Component {
     }
     else {
       date = moment().subtract(1,'m').format('YYYY-MM-DD');
-      console.log("month");
     }
-    console.log(date);
     var url = 'https://finnhub.io/api/v1/company-news?symbol=' + this.props.ticker + '&from=' + date + '&to=' + current + '&token=bquqnj7rh5rcjefatevg'
-
-    console.log(url);
-
     fetch(url)
       .then(res => res.json())
       .then(

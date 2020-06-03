@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Searchlist from './Searchlist.js'
-import Main from './Main.js'
+import Searchlist from './components/Searchlist.js'
+import Main from './components/Main.js'
 import ReactDOM from 'react-dom';
-import logo from './images/logo_main.png'
-import Navigation from './Navigation'
-import Search from './Search'
+import logo from './components/images/logo_main.png'
+import Navigation from './components/Navigation'
+import Search from './components/Search'
 import { withAuthenticator } from '@aws-amplify/ui-react'
 
 class App extends Component {
@@ -37,7 +37,7 @@ class App extends Component {
 
         <div id="change-log">
             <p id="v-title" className="h1 text-center">Versioning</p>
-            <div className="card bg-light text-dark">
+            <div className="card bg-light text-dark version-card">
                 <div className="card-body">
                   <h5 className="card-title">1.3.1</h5>
                   <h6 className="card-subtitle mb-2 text-muted">6-2-2020</h6>
@@ -50,7 +50,7 @@ class App extends Component {
                   </p>
                 </div>
               </div>
-            <div className="card bg-light text-dark">
+            <div className="card bg-light text-dark version-card">
                 <div className="card-body">
                   <h5 className="card-title">1.3.0</h5>
                   <h6 className="card-subtitle mb-2 text-muted">5-29-2020</h6>
@@ -63,7 +63,7 @@ class App extends Component {
                   </p>
                 </div>
               </div>
-            <div className="card bg-light text-dark">
+            <div className="card bg-light text-dark version-card">
                 <div className="card-body">
                   <h5 className="card-title">1.2.1</h5>
                   <h6 className="card-subtitle mb-2 text-muted">5-22-2020</h6>
@@ -79,7 +79,7 @@ class App extends Component {
                 </div>
               </div>
 
-              <div className="card bg-light text-dark">
+              <div className="card bg-light text-dark version-card">
                   <div className="card-body">
                     <h5 className="card-title">1.2.0</h5>
                     <h6 className="card-subtitle mb-2 text-muted">5-14-2020</h6>
@@ -92,7 +92,7 @@ class App extends Component {
                     </p>
                   </div>
                 </div>
-              <div className="card bg-light text-dark">
+              <div className="card bg-light text-dark version-card">
                 <div className="card-body">
                   <h5 className="card-title">1.0.0</h5>
                   <h6 className="card-subtitle mb-2 text-muted">5-9-2020</h6>

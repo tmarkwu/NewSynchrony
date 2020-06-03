@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './images/logo_navbar.png'
-import './Search.css'
+import './css/Search.css'
 import ReactDOM from 'react-dom';
 import Searchlist from './Searchlist'
 
